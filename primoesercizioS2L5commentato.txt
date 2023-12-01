@@ -1,0 +1,79 @@
+#include <stdio.h>
+
+void menu ();
+void moltiplica ();
+void dividi ();
+void ins_string();
+
+
+int main () 
+
+{
+	char scelta = {'\0'};   //eliminare le parentesi graffe
+	menu ();
+	scanf ("%d", &scelta);  //cambiare da %d a %c per leggere correttamente il carattere
+   //qui bisogna inserire un ciclo do
+	switch (scelta)    
+	{
+		case 'A':           //in questo blocco aggiungero case 'a' successivi per accettare lettere minuscole, inseriro la possibilita di uscire dal programma e aggiungo un messaggio di errore in caso di scelta errata
+		moltiplica();
+		break;
+		case 'B':
+                dividi();
+                break;
+		case 'C':
+                ins_string();
+                break;   //aggiungere un default per migliore gestione input
+	}
+
+return 0;
+
+}
+
+
+void menu ()
+{
+	printf ("Benvenuto, sono un assitente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+	printf ("Come posso aiutarti?\n");
+	printf ("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\n");  // riga corretta ed aggiornata  printf(" A >> Moltiplicare due numeri \n B >> Dividere due numeri\n C >> Inserire una stringa\n D >> Uscire dal programma\n");
+
+}
+
+
+void moltiplica ()
+{
+	short int  a,b = 0;  
+	printf ("Inserisci i due numeri da moltiplicare:");   //aggiungere \n prima di inserisci e di nuovo \n prima delle virgolette dopo i :
+	scanf ("%f", &a);  // cambiare %f e %d entrambi in %hd
+	scanf ("%d", &b);
+
+	short int prodotto = a * b;
+
+	printf ("Il prodotto tra %d e %d e': %d", a,b,prodotto);  //cambiare i %d in %hd, dando anche uno spazio tra a , b , prodotto
+}
+
+
+void dividi ()
+{
+        int  a,b = 0;
+        printf ("Inserisci il numeratore:");  //aggiungere \n prima della fine delle virgolette
+        scanf ("%d", &a);
+	printf ("Inserisci il denumeratore:");  //aggiungere \n prima della fine delle virgolette
+        scanf ("%d", &b);
+
+        int divisione = a % b;  // la riga corretta qui perche il numero puo non essere intero sarebbe float divisione = (float) a / b;
+
+        printf ("La divisione tra %d e %d e': %d", a,b,divisione);   // correggere dando anche uno spazio tra a , b , divisione. cambiare l ultimo %d ad %f come correzione
+}
+
+
+
+
+
+void ins_string () //  aggiunto codice mancate per via del void string ad inizio codice che non veniva chiamato da nessuna parte
+{
+	char stringa[10];
+        printf ("Inserisci la stringa:");
+        scanf ("%s", &stringa);
+}
+
